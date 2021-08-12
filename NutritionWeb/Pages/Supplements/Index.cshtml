@@ -1,0 +1,57 @@
+﻿@page
+@model NutritionWeb.Pages.Supplements.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4 roboto-font">All Supplement</h1>
+    <a asp-page="Create" class="btn btn-dark">Add New Supplement</a>
+</div>
+<hr />
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].SupplementName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].Vitamin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplement[0].Price)
+            </th>
+            <th colspan="2" align="center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Supplement)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplementName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vitamin.VitaminName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" class="btn btn-dark" asp-route-id="@item.Id">Edit</a>
+            </td>
+            <td>
+                <a asp-page="./Delete" class="btn btn-dark" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@page
+@model NutritionWeb.Pages.Vitamins.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4 roboto-font">All Vitamin</h1>
+    <a asp-page="Create" class="btn btn-dark">Add New Vitamin</a>
+</div>
+<hr />
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vitamin[0].VitaminName)
+            </th>
+            <th colspan="2" align="center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Vitamin)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VitaminName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" class="btn btn-dark" asp-route-id="@item.Id">Edit</a> 
+                </td>
+                <td>
+                    <a asp-page="./Delete" class="btn btn-dark" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

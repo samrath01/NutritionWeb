@@ -1,0 +1,32 @@
+﻿@page
+@model NutritionWeb.Pages.Vitamins.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center">
+    <h1 class="display-4 roboto-font">Edit Vitamin</h1>
+    <a asp-page="Index" class="btn btn-dark">View All Vitamin</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vitamin.Id" />
+            <div class="form-group">
+                <label asp-for="Vitamin.VitaminName" class="control-label"></label>
+                <input asp-for="Vitamin.VitaminName" class="form-control" />
+                <span asp-validation-for="Vitamin.VitaminName" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Save Details" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

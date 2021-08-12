@@ -1,0 +1,42 @@
+﻿@page
+@model NutritionWeb.Pages.Foods.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center">
+    <h1 class="display-4 roboto-font">Edit Food</h1>
+    <a asp-page="Index" class="btn btn-dark">View All Food</a>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Food.Id" />
+            <div class="form-group">
+                <label asp-for="Food.VitaminId" class="control-label"></label>
+                <select asp-for="Food.VitaminId" class="form-control" asp-items="ViewBag.VitaminId"></select>
+                <span asp-validation-for="Food.VitaminId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Food.FoodName" class="control-label"></label>
+                <input asp-for="Food.FoodName" class="form-control" />
+                <span asp-validation-for="Food.FoodName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Food.Details" class="control-label"></label>
+                <textarea asp-for="Food.Details" class="form-control" ></textarea>
+                <span asp-validation-for="Food.Details" class="text-danger"></span>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Save Details" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

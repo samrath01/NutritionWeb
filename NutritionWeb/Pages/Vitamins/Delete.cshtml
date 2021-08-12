@@ -1,0 +1,27 @@
+﻿@page
+@model NutritionWeb.Pages.Vitamins.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="text-center">
+    <h1 class="display-4 roboto-font">Delete Vitamin</h1>
+    <a asp-page="Index" class="btn btn-dark">View All Vitamin</a>
+</div>
+<hr />
+<div>
+     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vitamin.VitaminName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vitamin.VitaminName)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Vitamin.Id" />
+        <input type="submit" value="Delete Vitamin Details" class="btn btn-danger" /> 
+    </form>
+</div>
